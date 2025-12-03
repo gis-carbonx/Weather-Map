@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Map - Open Meteo</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="legend">
+        <h3>Weather Layers</h3>
+        <button onclick="setLayer('precip')">🌧 Rain</button>
+        <button onclick="setLayer('clouds')">☁ Clouds</button>
+        <button onclick="setLayer('temp')">🌡 Temperature</button>
+        <button onclick="setLayer('none')">❌ Hide</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
