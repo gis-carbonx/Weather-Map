@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16.30</title>
+    <title>16.36</title>
 
     <link rel="stylesheet" href="style.css" />
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
-    <div id="map"></div>
-
-    <div id="legend">
-        <h3>Weather Layers</h3>
-        <button onclick="setLayer('precip')">🌧 Rain</button>
-        <button onclick="setLayer('clouds')">☁ Clouds</button>
-        <button onclick="setLayer('temp')">🌡 Temperature</button>
-        <button onclick="setLayer('none')">❌ Hide</button>
+    <div id="menu">
+        <button onclick="showRadar()">Rain Radar</button>
+        <button onclick="hideRadar()">Hide Radar</button>
+        <button onclick="increaseOpacity()">Opacity +</button>
+        <button onclick="decreaseOpacity()">Opacity -</button>
     </div>
+
+    <div id="map"></div>
 
     <script src="script.js"></script>
 </body>
