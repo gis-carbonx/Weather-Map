@@ -13,21 +13,21 @@ function setLayer(type) {
 
     if (type === "precip") {
         weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/precipitation/{z}/{x}/{y}.png",
+            "https://tile.open-meteo.com/v1/precipitation/{z}/{x}/{y}",
             { attribution: "© Open-Meteo", opacity: 0.8 }
         ).addTo(map);
     }
 
     if (type === "clouds") {
         weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/cloudcover_total/{z}/{x}/{y}.png",
+            "https://tile.open-meteo.com/v1/cloudcover_total/{z}/{x}/{y}",
             { attribution: "© Open-Meteo", opacity: 0.8 }
         ).addTo(map);
     }
 
     if (type === "temp") {
         weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/temperature_2m/{z}/{x}/{y}.png",
+            "https://tile.open-meteo.com/v1/temperature_2m/{z}/{x}/{y}",
             { attribution: "© Open-Meteo", opacity: 0.8 }
         ).addTo(map);
     }
