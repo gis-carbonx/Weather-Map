@@ -4,35 +4,31 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap"
 }).addTo(map);
 
-var weatherLayer = null;
+var radarOpacity = 0.7;
 
-function setLayer(type) {
-    if (weatherLayer) {
-        map.removeLayer(weatherLayer);
+var radarLayer = L.tileLayer(
+    "https://tilecache.rainviewer.com/v2/radar/now/{z}/{x}/{y}/2/1_1.png",
+    {
+        tileSize: 256,
+        opacity: radarOpacity,
+        attribution: "Radar data © RainViewer"
     }
+);
 
-    if (type === "precip") {
-        weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/precipitation/{z}/{x}/{y}",
-            { attribution: "© Open-Meteo", opacity: 0.8 }
-        ).addTo(map);
-    }
+function showRadar() {
+    radarLayer.addTo(map);
+}
 
-    if (type === "clouds") {
-        weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/cloudcover_total/{z}/{x}/{y}",
-            { attribution: "© Open-Meteo", opacity: 0.8 }
-        ).addTo(map);
-    }
+function hideRadar() {
+    map.removeLayer(radarLayer);
+}
 
-    if (type === "temp") {
-        weatherLayer = L.tileLayer(
-            "https://tile.open-meteo.com/v1/temperature_2m/{z}/{x}/{y}",
-            { attribution: "© Open-Meteo", opacity: 0.8 }
-        ).addTo(map);
-    }
+function increaseOpacity() {
+    radarOpacity = Math.min(1, radarOpacity + 0.1);
+    radarLayer.setOpacity(radarOpacity);
+}
 
-    if (type === "none") {
-        weatherLayer = null;
-    }
+function decreaseOpacity() {
+    radarOpacity = Math.max(0, radarOpacity - 0.1);
+    radarLayer.setOpacity(radarOpacity);
 }
